@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>LIBA v2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="liba.css">
+  <link rel="manifest" href="manifest.json">
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js');
+    });
+  }
+  </script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="header-top">
+  <div class="logo-wrap">
+    <img src="icons/logo-skbt.png" alt="SKBT" class="logo">
+    <img src="icons/logo-ts25.png" alt="TS25" class="logo">
+    <img src="icons/logo-liba.png" alt="LIBA" class="logo">
+  </div>
+  <div class="marquee">SELAMAT DATANG KE LIBA – LITERASI INTERAKTIF BACAAN AKTIF</div>
+</header>
+
+<main class="main-wrap" id="halaman-utama">
+  <!-- baris maklumat murid -->
+  <section class="card">
+    <div class="row">
+      <div class="field">
+        <label for="nama">NAMA MURID</label>
+        <input id="nama" placeholder="Contoh: Aina binti Ali">
+      </div>
+      <div class="field">
+        <label for="kelas">KELAS</label>
+        <select id="kelas">
+          <option value="">-- Pilih --</option>
+          <option value="PEMULIHAN">PEMULIHAN</option>
+          <option value="1 AR-RAZI">1 AR-RAZI</option>
+          <option value="1 AL-KHAWARIZMI">1 AL-KHAWARIZMI</option>
+          <option value="2 AR-RAZI">2 AR-RAZI</option>
+          <option value="2 AL-KHAWARIZMI">2 AL-KHAWARIZMI</option>
+          <option value="3 AR-RAZI">3 AR-RAZI</option>
+          <option value="3 AL-KHAWARIZMI">3 AL-KHAWARIZMI</option>
+          <option value="4 AR-RAZI">4 AR-RAZI</option>
+          <option value="5 AR-RAZI">5 AR-RAZI</option>
+          <option value="5 AL-KHAWARIZMI">5 AL-KHAWARIZMI</option>
+          <option value="6 AR-RAZI">6 AR-RAZI</option>
+          <option value="6 AL-KHAWARIZMI">6 AL-KHAWARIZMI</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="bahasa">BAHASA</label>
+        <select id="bahasa">
+          <option value="BM">Bahasa Melayu</option>
+          <option value="BI">Bahasa Inggeris</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button id="btn-mula">Mula Baca</button>
+      <button id="btn-tamat" disabled>Tamat</button>
+      <button id="btn-camera">Mulakan Kamera</button>
+      <button id="btn-stop-camera" disabled>Hentikan Kamera</button>
+      <span id="masa">00:00</span>
+    </div>
+  </section>
+
+  <!-- transkrip -->
+  <section class="card">
+    <label for="transkrip">TRANSKRIP AUTOMATIK</label>
+    <textarea id="transkrip" rows="6" placeholder="Transkrip automatik akan muncul di sini..."></textarea>
+    <div class="btn-row">
+      <button id="btn-bahan">Muat Turun Bahan Bacaan</button>
+    </div>
+    <video id="preview" autoplay muted playsinline style="display:none;"></video>
+  </section>
+
+  <!-- butang kuiz dan analisis -->
+  <section class="card">
+    <div class="btn-row">
+      <button id="btn-jana-kuiz">Jana Kuiz</button>
+      <button id="btn-semak-kuiz">Semak Kuiz</button>
+      <button id="btn-analisis">Analisis Bacaan</button>
+      <button id="btn-export">Eksport Data</button>
+    </div>
+    <div id="kuiz-container"></div>
+  </section>
+
+  <!-- jadual rekod bacaan -->
+  <section class="card">
+    <h3>REKOD BACAAN</h3>
+    <table id="rekod-table">
+      <thead>
+        <tr>
+          <th>Tarikh</th>
+          <th>Masa</th>
+          <th>Nama</th>
+          <th>Kelas</th>
+          <th>Tempoh (s)</th>
+          <th>WPM</th>
+          <th>Peratus</th>
+          <th>TP</th>
+          <th>Markah Kuiz</th>
+        </tr>
+      </thead>
+      <tbody id="rekod-body"></tbody>
+    </table>
+  </section>
+</main>
+
+<!-- HALAMAN ANALISIS (halaman lain) -->
+<main class="main-wrap hidden" id="halaman-analisis">
+  <section class="card">
+    <h2>ANALISIS BACAAN</h2>
+    <p>Hasil Bacaan</p>
+    <p>Peratus Bacaan: <span id="bacaan-peratus">0%</span></p>
+    <p>TP Bacaan: <span id="bacaan-tp">-</span></p>
+    <p id="bacaan-huraian"></p>
+  </section>
+  <section class="card">
+    <h2>Markah Kuiz</h2>
+    <p>Markah Kuiz: <span id="markah-kuiz">0 / 10</span></p>
+    <p>TP Kuiz: <span id="tp-kuiz">-</span></p>
+  </section>
+  <section class="card">
+    <h2>Laporan Keseluruhan</h2>
+    <p>Jumlah Markah: <span id="jumlah-akhir">0%</span></p>
+    <p>TP Akhir: <span id="tp-akhir">-</span></p>
+    <p>Status: <span id="status-akhir">-</span></p>
+    <button id="btn-cetak">Cetak Laporan</button>
+    <button id="btn-kembali">Kembali ke LIBA</button>
+  </section>
+</main>
+
+<footer>
+  LIBA v2.0 • PSS ABU NAWAS SKBT • Khairulazman bin Dollah
+</footer>
+</body>
+</html>
