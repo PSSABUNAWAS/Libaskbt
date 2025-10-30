@@ -1,0 +1,9 @@
+{
+"name":"LIBA v2.0 PWA",
+"short_name":"LIBA",
+"start_url":"./index.html",
+"display":"standalone",
+"background_color":"#004aad",
+"theme_color":"#004aad",
+"icons":[{"src":"icons/logo1.png","sizes":"48x48","type":"image/png"}]
+}

@@ -1,0 +1,22 @@
+body{font-family:sans-serif;background:#f8fafc;margin:0;text-align:center;}
+header{background:#004aad;color:white;padding:10px;}
+.logo-wrap{display:flex;justify-content:center;gap:8px;margin-bottom:5px;}
+.logo{width:45px;height:45px;object-fit:contain;}
+main{padding:20px;}
+textarea{width:90%;margin:10px auto;display:block;padding:10px;}
+button{background:#0074d9;color:white;border:none;padding:10px 20px;margin:5px;border-radius:5px;cursor:pointer;}
+button:disabled{background:#aaa;}
+video{width:90%;max-width:500px;margin-top:10px;border:3px solid #004aad;border-radius:8px;}
+footer{background:#004aad;color:white;padding:10px;}
+.TP1{color:#d32f2f;} .TP2{color:#f57c00;} .TP3{color:#fbc02d;}
+.TP4{color:#388e3c;} .TP5{color:#1976d2;} .TP6{color:#6a1b9a;}
+@media print{
+  header, button, video, textarea, select, marquee {display:none;}
+  body{background:white;color:black;font-size:14pt;}
+  #laporan-keseluruhan, #hasil-bacaan, #hasil-kuiz{
+    border:3px solid #004aad;padding:20px;margin:10px auto;width:80%;border-radius:10px;
+  }
+  h3{text-transform:uppercase;color:#004aad;border-bottom:2px solid #004aad;}
+  .signature-area{display:flex;justify-content:space-around;margin-top:40px;}
+  .signature{text-align:center;}
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIBA v2.0 PWA - Laporan Cetak</title>
+<link rel="stylesheet" href="liba.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+<header>
+  <div class="logo-wrap">
+    <img src="icons/logo1.png" alt="Logo 1" class="logo">
+    <img src="icons/logo2.png" alt="Logo 2" class="logo">
+    <img src="icons/logo3.png" alt="Logo 3" class="logo">
+  </div>
+  <marquee>SELAMAT DATANG KE LIBA - LITERASI INTERAKTIF BACAAN AKTIF</marquee>
+</header>
+
+<main>
+  <h2>Rakaman & Analisis Bacaan</h2>
+  <label>Bahasa:</label>
+  <select id="bahasa">
+    <option value="BM">Bahasa Melayu</option>
+    <option value="BI">English</option>
+  </select>
+  <button id="btn-mula">Mula Baca</button>
+  <button id="btn-tamat" disabled>Tamat</button>
+  <button id="btn-camera">🎥 Mulakan Kamera</button>
+  <button id="btn-stop-camera" disabled>⏹️ Hentikan Kamera</button>
+  <p id="masa">00:00</p>
+  <video id="preview" autoplay muted playsinline></video>
+  <textarea id="transkrip" rows="5" placeholder="Transkrip automatik muncul di sini..."></textarea>
+
+  <section id="hasil-bacaan">
+    <h3>Hasil Bacaan</h3>
+    <p>Peratus Bacaan: <span id="bacaan-peratus">0%</span></p>
+    <p>TP Bacaan: <span id="bacaan-tp">-</span></p>
+    <p id="bacaan-huraian"></p>
+  </section>
+
+  <section id="hasil-kuiz">
+    <h3>Markah Kuiz</h3>
+    <p>Markah Kuiz: <span id="markah-kuiz">0 / 10</span></p>
+    <p>TP Kuiz: <span id="tp-kuiz">-</span></p>
+  </section>
+
+  <section id="laporan-keseluruhan">
+    <h3>Laporan Keseluruhan</h3>
+    <p>Jumlah Markah: <span id="jumlah-akhir">0%</span></p>
+    <p>TP Akhir: <span id="tp-akhir">-</span></p>
+    <p>Status: <span id="status-akhir">-</span></p>
+    <button id="btn-cetak">🖨️ Cetak Laporan</button>
+  </section>
+</main>
+
+<footer>PSS ABU NAWAS SKBT © 2025 - Khairulazman Bin Dollah</footer>
+</body>
+</html>
